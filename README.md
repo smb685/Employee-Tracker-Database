@@ -13,10 +13,10 @@ This was a project made with us of MySQL to keep track of employees infromation.
 - [Questions](#questions)
 
 ## Installation Instructions:
-Installation instructions: Make sure all dependencis given in the documentation  is downloaded and installed on the file using npm insall.
+Installation instructions: Install Node.js, Install NPM, Install and Configure MySQL.
 
 ## Usage:
-Usage instructions: To show and provide a project that uses node and MySQL to show and interactive database system.
+Usage instructions: This application was made to have the ability to choose and change information in the database created.
 
 ## License:
 This application is covered under the MIT license. 
