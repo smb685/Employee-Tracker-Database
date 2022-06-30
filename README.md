@@ -9,8 +9,6 @@ This was a project made with us of MySQL to keep track of employees infromation.
 - [Description](#description)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Contributing](#contributing)
-- [Tests](#tests)
 - [License](#license)
 - [Questions](#questions)
 
@@ -19,12 +17,6 @@ Installation instructions: Make sure all dependencis given in the documentation 
 
 ## Usage:
 Usage instructions: To show and provide a project that uses node and MySQL to show and interactive database system.
-
-## Contributing:
-Want to contriubte? Here's the guidelines: none
-
-## Tests:
-Current test instructions: none
 
 ## License:
 This application is covered under the MIT license. 
