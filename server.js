@@ -6,11 +6,12 @@ const { connection } = require('./db');
 const { start } = require('repl');
 const router = express.Router();
 
+
 db.connect(async function () {
-    start();
+    views();
 })
 
-function start() {
+function views() {
     inquirer.prompt([
         {
             type: 'list',
@@ -92,7 +93,7 @@ function viewEmployees() {
                     Quit();
           }
       })
-    //   start();
+       start();
     }) 
   };
 

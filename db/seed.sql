@@ -1,4 +1,4 @@
-USE business;
+USE employee_db;
 
 
 INSERT INTO employees(id, first_name, last_name, roles_id, manager_id)
