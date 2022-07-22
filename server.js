@@ -1,4 +1,4 @@
-const db = require('./db/connection');
+//const db = require('./db/connection');
 const inquirer = require('inquirer');
 const mysql = require('mysql');
 const express = require('express');
