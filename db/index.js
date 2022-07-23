@@ -17,8 +17,4 @@ class DB {
 
 module.exports = new DB(connection);
 
-// 👇️ default import
-import fetch from 'node-fetch'
 
-// 👇️ named import
-import {myPackage} from 'my-package'

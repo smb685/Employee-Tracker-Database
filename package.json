@@ -1,35 +1,60 @@
 {
 
-  "type": "module",
+
+
   "name": "employee-tracker-database",
+
   "version": "1.0.0",
+
   "description": "![badge](https://img.shields.io/badge/license-MIT-darkred)",
+
   "main": "server.js",
+
   "scripts": {
+
     "test": "echo \"Error: no test specified\" && exit 1",
+
     "start": "node server.js"
+
   },
+
   "repository": {
+
     "type": "git",
+
     "url": "git+https://github.com/smb685/Employee-Tracker-Database.git"
+
   },
+
   "author": "",
+
   "license": "ISC",
+
   "bugs": {
+
     "url": "https://github.com/smb685/Employee-Tracker-Database/issues"
+
   },
+
   "homepage": "https://github.com/smb685/Employee-Tracker-Database#readme",
+
   "dependencies": {
+
     "console.table": "^0.10.0",
+
     "esm": "^3.2.25",
+
     "express": "^4.18.1",
-    "inquirer": "^9.0.2",
+
+    "inquirer": "^8.2.4",
+
     "mysql": "^2.18.1",
+
     "mysql2": "^2.3.3",
+
     "node-fetch": "^2.6.7"
-    
-  
+
   }
 
-  
 }
+

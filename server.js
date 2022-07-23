@@ -1,15 +1,22 @@
-//const db = require('./db/connection');
+const db = require('./db/connection');
 const inquirer = require('inquirer');
-const mysql = require('mysql');
 const express = require('express');
 const { connection } = require('./db');
 const { start } = require('repl');
 const router = express.Router();
+const ct = require("console.table")
 
 
-db.connect(async function () {
+db.connect(err => {
+    if(err) throw err;
+    console.log('Database connected.');
+    /*
+    app.listen(PORT, () => {
+        console.log(`Server running on port ${PORT}`);
+    });
+    */
     views();
-})
+});
 
 function views() {
     inquirer.prompt([
@@ -20,7 +27,7 @@ function views() {
             choices: [
                 'View Employees',
                 'View Roles',
-                'Veiw Departments',
+                'View Departments',
                 'Add Role',
                 'Add Department',
                 'Quit'
@@ -47,13 +54,13 @@ function views() {
 
                 newEmployee();
                 break;
-            // case 'Add Role':
+             case 'Add Role':
 
-            //     addRole();
+                 addRole();
 
-            // case 'Add Department':
+             case 'Add Department':
 
-            //     addDepartment();
+                 addDepartment();
 
             case 'Quit':
 
@@ -68,39 +75,54 @@ function views() {
 
 
 function viewEmployees() {
-    const request = "SELECT * FROM employees";
-    db.query(request, function(err, res) {
-      if (err) throw err;
-      console.log("Viewing All Employees");
-      console.table(res);
-      inquirer.prompt([
-          {
-              type: 'list',
-              name: 'choice',
-              message: 'select an option.',
-              choices: [
-                  'Main Menu',
-                  'Quit'
-              ],
-          }
-      ])
-      .then((answer) => {
-          switch (answer.choice) {
-              case 'Main Menu':
-                  start();
-                break;
-                case 'Quit':
-                    Quit();
-          }
-      })
-       start();
-    }) 
-  };
+    console.log("about to query for employees")
+    db.promise().query("SELECT * FROM employee")
+    .then(([rows,fields]) => {
+        console.log("trying to get employees")
+        console.log(ct.getTable(rows));
+        inquirer.prompt({
+            name:'test',
+            type:'confirm',
+            message:'Do you want to continue?',
+            default: true
+
+        })
+    })
+    .catch(err => { console.log(err);
+    });
+    console.log("after querying")
+//     db.query(request, function(err, res) {
+//       //if (err) throw err;
+//       console.log("Viewing All Employees");
+//       console.table(res);
+//       inquirer.prompt([
+//           {
+//               type: 'list',
+//               name: 'choice',
+//               message: 'select an option.',
+//               choices: [
+//                   'Main Menu',
+//                   'Quit'
+//               ],
+//           }
+//       ])
+//       .then((answer) => {
+//           switch (answer.choice) {
+//               case 'Main Menu':
+//                   start();
+//                 break;
+//                 case 'Quit':
+//                     Quit();
+//           }
+//       })
+//        start();
+//     }) 
+   };
 
   function viewRoles() {
-    let request = "SELECT * FROM roles";
+    let request = "SELECT * FROM role";
     db.query(request, function(err, res) {
-        if (err) throw err;
+        //if (err) throw err;
         console.log("Viewing All Roles");
         console.table(res);
         inquirer.prompt([
@@ -130,7 +152,7 @@ function viewEmployees() {
 function viewDepartments() {
     const request = "SELECT * FROM department";
     db.query(request, function(err, res) {
-        if (err) throw err;
+        //if (err) throw err;
         console.log("Viewing All Departments");
         console.table(res);
         inquirer.prompt([
@@ -184,7 +206,7 @@ function newEmployee() {
     .then(function (response) {
         connection.query('INSERT INTO employees(first_name, last_name, roles_id, manager_id) VALUES (?,?,?,?)', 
         [response.FirstName, response.LastName, response.EmployeeID, response.ManagerID]), function(err,response) {
-            if (err) throw err;
+            //if (err) throw err;
             console.table(res);
             inquirer.prompt([
                 {
