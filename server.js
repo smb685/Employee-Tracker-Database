@@ -8,13 +8,13 @@ const ct = require("console.table")
 
 
 db.connect(err => {
-    if(err) throw err;
+    //if(err) throw err;
     console.log('Database connected.');
-    /*
+    
     app.listen(PORT, () => {
         console.log(`Server running on port ${PORT}`);
     });
-    */
+
     views();
 });
 
@@ -91,32 +91,32 @@ function viewEmployees() {
     .catch(err => { console.log(err);
     });
     console.log("after querying")
-//     db.query(request, function(err, res) {
-//       //if (err) throw err;
-//       console.log("Viewing All Employees");
-//       console.table(res);
-//       inquirer.prompt([
-//           {
-//               type: 'list',
-//               name: 'choice',
-//               message: 'select an option.',
-//               choices: [
-//                   'Main Menu',
-//                   'Quit'
-//               ],
-//           }
-//       ])
-//       .then((answer) => {
-//           switch (answer.choice) {
-//               case 'Main Menu':
-//                   start();
-//                 break;
-//                 case 'Quit':
-//                     Quit();
-//           }
-//       })
-//        start();
-//     }) 
+     db.query(request, function(err, res) {
+       //if (err) throw err;
+       console.log("Viewing All Employees");
+       console.table(res);
+       inquirer.prompt([
+           {
+               type: 'list',
+               name: 'choice',
+               message: 'select an option.',
+               choices: [
+                   'Main Menu',
+                   'Quit'
+              ],
+           }
+      ])
+       .then((answer) => {
+           switch (answer.choice) {
+               case 'Main Menu':
+                   start();
+                 break;
+                 case 'Quit':
+                     Quit();
+           }
+       })
+        start();
+     }) 
    };
 
   function viewRoles() {

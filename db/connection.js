@@ -4,7 +4,7 @@ const connection = mysql.createConnection({
 host: 'localhost',
 user: 'root',
 database: 'employee_db',
-password: 'password',
+password: 'March.031994',
 });
 
 console.log('You have now entered the Matrix database!')
